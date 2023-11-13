@@ -1,0 +1,36 @@
+/** 
+   * Universidad de La Laguna
+   * Escuela Superior de Ingeniería y Tecnología
+   * Grado en Ingeniería Informática  
+   * Informática Básica 2023-2024
+   * @file random_numbers.cc
+   * @author Diego Vegas Acosta alu0101651361@ull.edu.es
+   * @date Oct 10 2023    
+   * @brief The program gives a random number between the interval of the two numbers that enters in input
+   * @bug There are no known bugs
+   * @see https://jutge.org/problems/
+   */
+
+#include <iostream>
+
+char complement(char c) {
+  if (c=='A') return 'T';
+  if (c=='T') return 'A';
+  if (c=='C') return 'G';
+  if (c=='G') return 'C';
+  return 0;
+}
+
+int main () {
+  char c, a='z',b='z';
+  bool go = false;
+  while (std::cin >> c) {
+    if (go) std::cout << complement(c);
+    else if (c=='G' and a == 'T' and b == 'A') go = true;
+    else {
+      a = b;
+      b = c;
+    }
+    }
+    std::cout << std::endl;
+}
